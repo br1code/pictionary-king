@@ -11,7 +11,9 @@ function createSocket(server) {
 function newConnection(socket) {
     console.log('New user connected');
     
-    // handle events with socket.on(event, callback)
+    socket.on('draw', (data) => {
+        socket.broadcast.emit('draw', data);
+    });
 }
 
 module.exports = {
